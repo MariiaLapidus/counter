@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Count from "./components/count/Count";
 import Button from "./components/button/Button";
@@ -55,8 +54,9 @@ export default class App extends React.Component {
     }
 
     add = () => {
+        const {count,valueInput} = this.state;
         this.setState({
-            count: +(this.state.count + +this.state.valueInput)
+            count: +(count + +valueInput) >0 ? count + +valueInput : count + 0
         })
     }
 
@@ -90,13 +90,13 @@ export default class App extends React.Component {
     render() {// отрисовывает компоненту
        // this.props.funk();
       console.log('render');
-      const {count, data, valueInput}=  this.state;
+      const {count, valueInput}=  this.state;
 
 
       return(
         <div>
           <Count count={count}/>
-          <input type="number" value={valueInput} onChange={this.handleChange} />
+          <input type="number"  value={valueInput} onChange={this.handleChange} />
           <Button myHandler={this.handler} caption="ADD 1"/>
           <Button myHandler={this.xxx} caption="SUB 1"/>
           <Button myHandler={this.hundred} caption="ADD 100"/>

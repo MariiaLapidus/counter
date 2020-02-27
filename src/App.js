@@ -56,7 +56,7 @@ export default class App extends React.Component {
     add = () => {
         const {count,valueInput} = this.state;
         this.setState({
-            count: +(count + +valueInput) >0 ? count + +valueInput : count + 0
+            count: +(count + +valueInput) > 0 ? count + +valueInput : count + 0
         })
     }
 
